@@ -29,11 +29,12 @@ Things you may want to cover:
 
 |column|type|options|
 |------|----|-------|
-|user_name|string|null:false|
+|name|string|null:false|
 |email|string|null:false|
 |password|string|null:false|
 
 ### アソシエーション
+- has_many :users_groups
 - has_many :groups, through: :users_groups
 - has_many :messages,depenent: :delete_all
 
@@ -41,9 +42,10 @@ Things you may want to cover:
 ## groupsテーブル
 |column|type|options|
 |------|----|-------|
-|group_name|string|null:false|
+|name|string|null:false|
 |user_id|integer|foreign_key:true,null:false|
 ### アソシエーション
+- has_many :users_groups
 - has_many :users, through: :users_groups
 - has_many :messages,depenent: :delete_all
 
@@ -51,7 +53,7 @@ Things you may want to cover:
 ## messagesテーブル
 |column|type|options|
 |------|----|-------|
-|body|text|null:false|
+|body|text||
 |image|string||
 |group_id|integer|foreign_key:true,null:false|
 |user_id|integer|foreign_key:true,null:false|
@@ -65,7 +67,8 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|integer|foreign_key:true, null: false|
 |group_id|integer|foreign_key:true, null: false|
-
+belongs_to :user
+belongs_to :group
 
 
 
