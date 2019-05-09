@@ -1,35 +1,36 @@
 %div.wrapper
--# サイドバーの作成
+  a
+  /サイドバーの作成
   %div.chat-side
-  -# サイドバーのヘッダー作成
     %div.side-header
       %p.side-header__username
       %ul.user-menu
         %li.user-menu__edit-user
-          -# %a{:href = 'リンク入れる'} ＜＝仮置き
+          /%a{:href = 'リンク入れる'} ＜＝仮置き
         %li.user-menu__new-group
-          -# %a{:href = 'リンク入れる'} ＜＝仮置き
+          /%a{:href = 'リンク入れる'} ＜＝仮置き
 
-  -# サイドバーのグループ表示部分作成
+          /サイドバーのグループ表示部分作成
     %div.groups
-      -# %a{:href = 'リンク入れる'} ＜＝仮置き
-        %div.group
-          %p.group__group-name
-          %p.group__latest-massage
+      /%a{:href = 'リンク入れる'} ＜＝仮置き
+      %div.group
+        %p.group__group-name
+        %p.group__latest-massage
 
--# メッセージ表示画面の作成
+  /メッセージ表示画面の作成
   %div.chat-main
 
-  -# メッセージ画面のヘッダー作成
+    /メッセージ画面のヘッダー作成
     %div.main-header
       %div.current-group
         %h2.current-group__name
         %ul.member-list
           %li.member-list__member
-      -# %a{:href = 'リンク入れる'} ＜＝仮置き
+        /%a{:href = 'リンク入れる'} ＜＝仮置き
         %div.main-header__edit-btn
 
-  -# メッセージ表示部分作成
+
+    /メッセージ表示部分作成
     %div.messages
       %div.message
         %div.upper-info
@@ -38,11 +39,11 @@
         %p.message__text
         %img{src:"リンク先",alt:"テキスト"}
 
-  -# 入力フォーム作成
+    /入力フォーム作成
     %div.form
-      %form.new-message{action:"/リンク先/", method: post}
+      %form.new-message{action:"//", method: :post}
         %div.input-box
           %input.input-box__text{placeholder:"",type:"text"}
-        %input.new-message__submit-btn{type:submit,value="send"}
+          %input.new-message__submit-btn{type:"submit",value:"send"}
 
 
