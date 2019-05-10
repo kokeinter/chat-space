@@ -60,12 +60,10 @@
         height:74px;
         .upper-info{
           .upper-info__user{
-            font-size: 12px;
-            color:#999999;
+            @include font();
           }
           .upper-info__date{
-            font-size: 12px;
-            color:#999999;
+            @include font();
           }
         .message__text{
           font-size:12px;
@@ -78,10 +76,10 @@
       .input-box__text{
         font-size:16px;
         padding-left:10px;
-        position: relative;
-        .upload-label{
-          position: absolute;
-        }
+      }
+      .upload-label{
+      }
+      .new-message__submit-btn{
       }
     }
   }
