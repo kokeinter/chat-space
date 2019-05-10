@@ -2,49 +2,6 @@
   /サイドバーの作成
   .chat-side
     .side-header
-      %p.side-header__username
-      %ul.user-menu
-        %li.user-menu__edit-user
-          /%a{:href = 'リンク入れる'} ＜＝仮置き
-        %li.user-menu__new-group
-          /%a{:href = 'リンク入れる'} ＜＝仮置き
-
-          /サイドバーのグループ表示部分作成
-      = render "side-bar"
-
-  /メッセージ表示画面の作成
-  .chat-main{}
-
-    /メッセージ画面のヘッダー作成
-    .main-header
-      .current-group
-        %h2.current-group__name
-        %ul.member-list
-          %li.member-list__member
-        /%a{:href = 'リンク入れる'} ＜＝仮置き
-        .main-header__edit-btn
-
-
-    /メッセージ表示部分作成
-    .messages
-      .message
-        .upper-info
-          %p.upper-info__user
-          %p.upper-info__date
-        %p.message__text
-        %img{src:"リンク先",alt:"テキスト"}
-
-    /入力フォーム作成
-    .form
-      %form.new-message{action:"//", method: :post}
-        .input-box
-          %input.input-box__text{placeholder:"",type:"text"}
-            %label.upload-label{for: "upload-icon"}
-              %input.image{type: "file", id: "upload-icon"}
-              %i.fa.fa-picture-o
-            -# %label.upload-label{for: "upload-icon"}
-            -#   %input.search{type:"file", id:"upload-icon"}
-            -#   %i.fa.fa-picture-o
-        %input.new-message__submit-btn{type:"submit",value:"send"}
-
-
+      %p.side-header__username ko
+      %i.fa.fa-cog
+      %i.fa.fa-edit
