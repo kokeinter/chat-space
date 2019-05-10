@@ -1,7 +1,7 @@
-%div.wrapper
+.wrapper
   /サイドバーの作成
-  %div.chat-side
-    %div.side-header
+  .chat-side
+    .side-header
       %p.side-header__username
       %ul.user-menu
         %li.user-menu__edit-user
@@ -13,31 +13,31 @@
       = render "side-bar"
 
   /メッセージ表示画面の作成
-  %div.chat-main{}
+  .chat-main{}
 
     /メッセージ画面のヘッダー作成
-    %div.main-header
-      %div.current-group
+    .main-header
+      .current-group
         %h2.current-group__name
         %ul.member-list
           %li.member-list__member
         /%a{:href = 'リンク入れる'} ＜＝仮置き
-        %div.main-header__edit-btn
+        .main-header__edit-btn
 
 
     /メッセージ表示部分作成
-    %div.messages
-      %div.message
-        %div.upper-info
+    .messages
+      .message
+        .upper-info
           %p.upper-info__user
           %p.upper-info__date
         %p.message__text
         %img{src:"リンク先",alt:"テキスト"}
 
     /入力フォーム作成
-    %div.form
+    .form
       %form.new-message{action:"//", method: :post}
-        %div.input-box
+        .input-box
           %input.input-box__text{placeholder:"",type:"text"}
             %label.upload-label{for: "upload-icon"}
               %i.fa.fa-picture-o
