@@ -40,7 +40,11 @@
         .input-box
           %input.input-box__text{placeholder:"",type:"text"}
             %label.upload-label{for: "upload-icon"}
+              %input.image{type: "file", id: "upload-icon"}
               %i.fa.fa-picture-o
-          %input.new-message__submit-btn{type:"submit",value:"send"}
+            -# %label.upload-label{for: "upload-icon"}
+            -#   %input.search{type:"file", id:"upload-icon"}
+            -#   %i.fa.fa-picture-o
+        %input.new-message__submit-btn{type:"submit",value:"send"}
 
 
