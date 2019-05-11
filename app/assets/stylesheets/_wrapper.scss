@@ -50,7 +50,6 @@
   .chat-main{
     width:calc(100vw - 300px);
     height:100%;
-    background-color: black;
     float: right;
     .main-header{
       height: 100px;
@@ -78,7 +77,7 @@
         left: auto;
         right: 40px;
         bottom: 0;
-        margin:0;
+        margin:auto;
         height:40px;
         width:80px;
         margin-top:35px;
@@ -87,7 +86,7 @@
       }
     }
     .main-msgs{
-      height: calc(100vh - 200px);
+      height: calc(100vh - 230px);
       width:100%;
       background-color: #fafafa;
       padding-left:40px;
@@ -106,6 +105,41 @@
       &__a-msg{
         font-size: 14px;
         color: #434a54;clear: both;
+      }
+    }
+    .form {
+      background-color: #DDDDDD;
+      box-sizing: border-box;
+      height: 90px;
+      padding: 20px 50px 20px 40px;
+      &__message {
+        border: none;
+        float: left;
+        height: 50px;
+        width: calc(100% - 150px);
+      }
+      &__picture {
+        background-color: white;
+        float: left;
+        height: 50px;
+        padding-right: 10px;
+        &__image {
+          font-size: 20px;
+          line-height: 50px;
+        }
+        .hidden {
+          display: none;
+        }
+      }
+      &__submit {
+        background-color:  #38aef0;
+        border: none;
+        color: white;
+        float: right;
+        font-size: 16px;
+        height: 50px;
+        margin-left: 15px;
+        padding: 0 30px;
       }
     }
   }
