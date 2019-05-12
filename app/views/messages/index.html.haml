@@ -2,8 +2,10 @@
   /サイドバーの作成
   .chat-side
     .side-header
-      %p.side-header__username ユーザーネーム
-      %i.fa.fa-cog
+      %p.side-header__username 
+        = current_user.name
+      = link_to edit_user_path(current_user) do
+        %i.fa.fa-cog
       %i.fa.fa-edit
     .side-footer
       .side-footer__group-name グループネーム
