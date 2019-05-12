@@ -6,7 +6,8 @@
         = current_user.name
       = link_to edit_user_path(current_user) do
         %i.fa.fa-cog
-      %i.fa.fa-edit
+      = link_to new_group_path do
+        %i.fa.fa-edit
     .side-footer
       .side-footer__group-name グループネーム
       .side-footer__latest-message 最新のメッセージ
