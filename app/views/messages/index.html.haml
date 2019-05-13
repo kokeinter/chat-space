@@ -27,10 +27,10 @@
         .main-msgs__msg-time 投稿時間
         .main-msgs__a-msg 投稿したメッセージ
     .form
-      %form
-        %input.form__message
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
         .form__picture
-          %label.form__picture__image
+          =f.label :image, class: 'form__picture__image' do
             = fa_icon 'picture-o', class: 'icon'
-            %input.hidden{type: 'file'}
-        %input.form__submit{type: 'submit', value: 'Send'}
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
