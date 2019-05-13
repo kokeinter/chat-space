@@ -19,7 +19,8 @@
     .main-header
       %h2.main-header__current-group 開いているグループ名
       .main-header__group-member グループメンバー
-      .main-header__edit-btn Edit
+      =link_to edit_group_path(@group) do
+        .main-header__edit-btn Edit
     .main-msgs
       .main-msgs__box
         .main-msgs__user-name 投稿したユーザーの名前
