@@ -9,8 +9,12 @@
       = link_to new_group_path do
         %i.fa.fa-edit
     .side-footer
-      .side-footer__group-name グループネーム
-      .side-footer__latest-message 最新のメッセージ
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .side-footer__group-name 
+            = group.name
+          .side-footer__latest-message 
+            メッセージはまだありません。
   .chat-main
     .main-header
       %h2.main-header__current-group 開いているグループ名
