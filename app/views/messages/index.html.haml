@@ -16,17 +16,19 @@
             = group.show_last_message
   .chat-main
     .main-header
-      %h2.main-header__current-group 開いているグループ名
+      %h2.main-header__current-group 
+        = @group.name
       .main-header__group-member グループメンバー
       =link_to edit_group_path(@group) do
         .main-header__edit-btn Edit
     .main-msgs
       = render @messages
-    .form
-      = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-        .form__picture
-          =f.label :image, class: 'form__picture__image' do
-            = fa_icon 'picture-o', class: 'icon'
-            = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'form__submit'
+    .footer
+      .form
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          .form__picture
+            =f.label :image, class: 'form__picture__image' do
+              = fa_icon 'picture-o', class: 'icon'
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'form__submit'
