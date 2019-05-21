@@ -29,7 +29,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main-msgs').append(html);
-      $('.form__message').val('');
+      $('.form__message').reset();
       $('.form__submit').prop('disabled',false);
       $('html, body').animate({
         scrollTop: $(document).height()
