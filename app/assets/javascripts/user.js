@@ -37,15 +37,12 @@ $(function(){
 
   $('#user-search-field').on('keyup',function(){
     var input = $("#user-search-field").val();
-    // console.log(input)
     var href =  '/users'
     $.ajax({
       type: 'GET',
       url: href,
       data: { keyword: input },
       dataType: 'json'
-      // processData: false,
-      // contentType: false
     })
     .done(function(users){
       $("#user-search-result").empty();
