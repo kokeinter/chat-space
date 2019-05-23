@@ -1,4 +1,4 @@
-.main-msgs__box
+.main-msgs__box#msgbox{data: {id: message.id}}
   .main-msgs__user-name
     = message.user.name
   .main-msgs__msg-time 
@@ -8,4 +8,3 @@
       %p.lower-message__content
         = message.content
     = image_tag message.image.url, class: 'main-msgs__a-msg__image' if message.image.present?
-    
