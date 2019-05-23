@@ -52,10 +52,8 @@ $(function(){
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     last_message_id = $('.main-msgs__box:last').data('id');
-    console.log(last_message_id)
     var url =location.href
     url = url.replace("/messages","/api/messages")
-    console.log(url)
     $.ajax({
       //ルーティングで設定した通りのURLを指定
       url: url,
