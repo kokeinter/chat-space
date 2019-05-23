@@ -1,7 +1,11 @@
 $(function(){
   function buildHTML(message){
-    if (message.content && message.image.url) {
       //data-idが反映されるようにしている
+    if(message.image.url){
+      var msg_url = '<img src="' + message.image.url + '" class="main-msgs__a-msg__image" >'
+    }else{
+      var msg_url = ""
+    };
       var html = '<div class="main-msgs__box" data-id=' + message.id + '>' +
           '<div class="main-msgs__user-name">' +
             message.user_name +
@@ -13,87 +17,9 @@ $(function(){
             '<p class="lower-message__content">' +
               message.content +
             '</p>' +
-            '<img src="' + message.image.url + '" class="main-msgs__a-msg__image" >' +
+            msg_url +
           '</div>'
       '</div>'
-    } else if (message.content) {
-      //同様に、data-idが反映されるようにしている
-      var html = '<div class="main-msgs__box" data-id=' + message.id + '>' +
-          '<div class="main-msgs__user-name">' +
-            message.user_name +
-          '</div>' +
-          '<div class="main-msgs__msg-time">' +
-            message.created_at +
-          '</div>' +
-        '<div class="main-msgs__a-msg">' +
-          '<p class="lower-message__content">' +
-            message.content +
-          '</p>' +
-        '</div>' +
-      '</div>'
-    } else if (message.image.url) {
-      //同様に、data-idが反映されるようにしている
-      var html = '<div class="main-msgs__box" data-id=' + message.id + '>' +
-          '<div class="main-msgs__user-name">' +
-            message.user_name +
-          '</div>' +
-          '<div class="main-msgs__msg-time">' +
-            message.created_at +
-          '</div>' +
-        '<div class="main-msgs__a-msg">' +
-          '<img src="' + message.image.url + '" class="main-msgs__a-msg__image" >' +
-        '</div>' +
-      '</div>'
-    };
-    return html;
-  };
-
-  function insertHTML(message){
-    if (message.content && message.image.url) {
-      //data-idが反映されるようにしている
-      var html = '<div class="main-msgs__box" data-id=' + message.id + '>' +
-          '<div class="main-msgs__user-name">' +
-            message.user_name +
-          '</div>' +
-          '<div class="main-msgs__msg-time">' +
-            message.created_at +
-          '</div>' +
-          '<div class="main-msgs__a-msg">' +
-            '<p class="lower-message__content">' +
-              message.content +
-            '</p>' +
-            '<img src="' + message.image.url + '" class="main-msgs__a-msg__image" >' +
-          '</div>'
-      '</div>'
-    } else if (message.content) {
-      //同様に、data-idが反映されるようにしている
-      var html = '<div class="main-msgs__box" data-id=' + message.id + '>' +
-          '<div class="main-msgs__user-name">' +
-            message.user_name +
-          '</div>' +
-          '<div class="main-msgs__msg-time">' +
-            message.created_at +
-          '</div>' +
-        '<div class="main-msgs__a-msg">' +
-          '<p class="lower-message__content">' +
-            message.content +
-          '</p>' +
-        '</div>' +
-      '</div>'
-    } else if (message.image.url) {
-      //同様に、data-idが反映されるようにしている
-      var html = '<div class="main-msgs__box" data-id=' + message.id + '>' +
-          '<div class="main-msgs__user-name">' +
-            message.user_name +
-          '</div>' +
-          '<div class="main-msgs__msg-time">' +
-            message.created_at +
-          '</div>' +
-        '<div class="main-msgs__a-msg">' +
-          '<img src="' + message.image.url + '" class="main-msgs__a-msg__image" >' +
-        '</div>' +
-      '</div>'
-    };
     return html;
   };
 
@@ -125,7 +51,6 @@ $(function(){
   });
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    // last_message_id = $('.main-msgs')(子要素を配列)（最後の要素だけ）.data('msg-id');
     last_message_id = $('.main-msgs__box:last').data('id');
     console.log(last_message_id)
     var url =location.href
@@ -142,16 +67,12 @@ $(function(){
     })
     .done(function(messages) {
       console.log('success');
-      //追加するHTMLの入れ物を作る
-      // var insertHTML = '';
       //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
       messages.forEach(function(message){
         //メッセージが入ったHTMLを取得
-        var html = insertHTML(message);
+        var html = buildHTML(message);
         //メッセージを追加
         $('.main-msgs').append(html);
-        // $('.form__message').reset();
-        // $('.form__submit').prop('disabled',false);
         $('html, body').animate({
           scrollTop: $(document).height()
         },1500);
