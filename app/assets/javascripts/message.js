@@ -40,9 +40,7 @@ $(function(){
       $('.main-msgs').append(html);
       $('.new_message')[0].reset();
       $('.form__submit').prop('disabled',false);
-      $('html, body').animate({
-        scrollTop: $(document).height()
-      },1500);
+      $('.main-msgs').animate({scrollTop: $('.main-msgs')[0].scrollHeight}, 1500);
     })
     .fail(function(){
       alert('error');
@@ -71,9 +69,7 @@ $(function(){
         var html = buildHTML(message);
         //メッセージを追加
         $('.main-msgs').append(html);
-        $('html, body').animate({
-          scrollTop: $(document).height()
-        },1500);
+        $('.main-msgs').animate({scrollTop: $('.main-msgs')[0].scrollHeight}, 1500);
       });
     })
     .fail(function() {
