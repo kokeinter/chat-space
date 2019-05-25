@@ -1,11 +1,7 @@
 $(function(){
   function buildHTML(message){
       //data-idが反映されるようにしている
-    if(message.image.url){
-      var msg_url = '<img src="' + message.image.url + '" class="main-msgs__a-msg__image" >'
-    }else{
-      var msg_url = ""
-    };
+    var msg_url = message.image.url ? '<img src="' + message.image.url + '" class="main-msgs__a-msg__image" >' : ""
       var html = '<div class="main-msgs__box" data-id=' + message.id + '>' +
           '<div class="main-msgs__user-name">' +
             message.user_name +
